@@ -11,26 +11,29 @@ import com.badlogic.gdx.utils.ScreenUtils;
 public class StarGame extends ApplicationAdapter {
 	SpriteBatch batch;	//Класс, который отвечает за отрисовку графических объектов
 	Texture img;	//Класс, который отвечает
+	Texture backgroundTexture;
 
-	//private int x = 0;
+	private int x = 0;
 
 	/*Стартовая инициализация*/
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
+		backgroundTexture = new Texture("lesson1.jpg");
 	}
 
 	/*Метод отрисовки, работающий 60 раз в секунду*/
 	@Override
 	public void render () {
 		/*В том случае, если переменная x будет полем, а в методе render она будет инкрементирована, тогда графический объект будет двигаться вдооль оси x(слева-направо)*/
-		//x++;
+		x++;
 		ScreenUtils.clear(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();	//Передача графическому процессору данных для отрисовки
 //		batch.draw(img, 0, 0);	//Отрисовка графического объекта img в точке с координатами (0,0)
-		batch.draw(img, 0,0);
+		batch.draw(backgroundTexture, 0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+		batch.draw(img, x, 100);
 		batch.end();	//Метод, который отвечает за передачу полученной графики на отрисовку
 	}
 
@@ -39,5 +42,6 @@ public class StarGame extends ApplicationAdapter {
 	public void dispose () {
 		batch.dispose();
 		img.dispose();
+
 	}
 }
