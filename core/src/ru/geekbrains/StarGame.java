@@ -6,14 +6,13 @@ import ru.geekbrains.screen.MenuScreen;
 
 /**
  * Разработка_игры_на_LibGDX.Преподаватель: Алексей Кутепов
- * Урок 2. Базовые возможности фреймворка LibGDX
- * Работа с графикой. Векторная математика.
+ * Урок 3. Разработка «каркаса» игры
  */
 public class StarGame extends Game {
 
 	@Override
-	public void create() {
-		//устанавливаем начальный экран приложения
-		setScreen(new MenuScreen());
+	public void create () {
+		setScreen(new MenuScreen(this));
 	}
+
 }
